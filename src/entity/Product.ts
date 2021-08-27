@@ -1,15 +1,15 @@
-import {Field, ObjectType} from 'type-graphql';
+import {Field, Int, ObjectType} from 'type-graphql';
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, BaseEntity} from 'typeorm';
 
 
 @ObjectType()
 @Entity()
 export class Product extends BaseEntity {
-    @Field()
+    @Field(() => Int)
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Field()
+    @Field(()=>String)
     @Column()
     name!: string;
 
@@ -19,6 +19,6 @@ export class Product extends BaseEntity {
 
     @Field(() => String)
     @CreateDateColumn({type: 'timestamp'})
-    createdAt!: string
+    createdAt!: string;
 }
 
